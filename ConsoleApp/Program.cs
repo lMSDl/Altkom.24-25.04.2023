@@ -81,6 +81,22 @@ floatValue = (float)double.MaxValue;
 Console.WriteLine(floatValue);
 
 
+//parsowanie/konwersja string na int
+string value = Console.ReadLine();
+int intVal = int.Parse(value);
+int result = intVal * 2;
+
+Console.WriteLine(  $"{intVal} * 2 = {result}");
+
+//parsowanie/konwersja string na float
+value = Console.ReadLine();
+float floatVal = float.Parse(value);
+float floatResult = floatVal * 2;
+
+Console.WriteLine($"{floatVal} * 2 = {floatResult}");
+
+
+
 void Strings()
 { 
 //instrukcje najwyższego poziomu - instrukcje bez jawnego opakowania w funkcję Main
