@@ -58,6 +58,59 @@ if (!(value > 5 && value <= 10))
 }
 
 
+
+Console.WriteLine("---");
+
+
+if (value > 0)
+{
+    Console.WriteLine($"Wartość {value} jest większa 0");
+}
+else if (value < 0)
+{
+    Console.WriteLine($"Wartość {value} jest mniejsza 0");
+}
+else
+{
+    Console.WriteLine($"Wartość {value} jest równa 0");
+}
+
+//switch przyjmuje parametr, który jest porównywany z listą przypadków
+switch (value)
+{
+    case > 0:
+        Console.WriteLine($"Wartość {value} jest większa 0");
+        break;
+    case < 0:
+        Console.WriteLine($"Wartość {value} jest mniejsza 0");
+        break;
+
+        //default jest opcjonalny i wywoływany gdy nie znaleziono innego dopasowania
+    default:
+        Console.WriteLine($"Wartość {value} jest równa 0");
+        break;
+}
+
+
+Console.WriteLine("Jak masz na imię?");
+string input = Console.ReadLine();
+
+switch(input)
+{
+    case "":
+        Console.WriteLine("Szkoda, że nie chcesz podać swojego imienia...");
+        break;
+    case "Alexa":
+        Console.WriteLine("Hej! Masz na imię tak jak asystent Amazona??");
+        break;
+    default:
+        Console.WriteLine($"Cześć {input}! Jak się masz?");
+        break;
+}
+
+
+
+
 void Numbers()
 {
 
