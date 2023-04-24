@@ -1,11 +1,15 @@
-﻿
+﻿using System.Globalization;
+
+
 //class Program
 //{
 //    public static void Main()
 //    {
 
-        //instrukcje najwyższego poziomu - instrukcje bez jawnego opakowania w funkcję Main
-        Console.WriteLine("Hello, World!");
+//instrukcje najwyższego poziomu - instrukcje bez jawnego opakowania w funkcję Main
+
+
+Console.WriteLine("Hello, World!");
 
 //; - średnik oznacza koniec instrukcji
 
@@ -52,6 +56,21 @@ Console.WriteLine(helloOutput);
 //łączenie stringów wykorzystujhąć interpolację (string interpolowany)
 helloOutput = $"{helloVariable} {input}! :)";
 Console.WriteLine(helloOutput);
+
+//Join - łączy stringi za pomocą wskazanego separatora
+Console.WriteLine( string.Join(" _ ", helloVariable, input, "!") );
+
+Console.WriteLine($"helloOuput lengh is {helloOutput.Length}");
+Console.WriteLine($"helloOuput lengh is {helloOutput.Count()}");
+
+//zastąpienie części ciągu znaków - czułe na wielkość liter
+//helloOutput = helloOutput.Replace("Hello", "Hi");
+//Console.WriteLine(helloOutput);
+
+//zastąpienie części ciągu znaków - niezależne od wielkości liter
+helloOutput = helloOutput.Replace("hello", "Hi", true, CultureInfo.InvariantCulture); //using System.Globalization
+Console.WriteLine(helloOutput);
+
 
 
 
