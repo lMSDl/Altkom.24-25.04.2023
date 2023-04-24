@@ -6,9 +6,63 @@
 //    public static void Main()
 //    {
 
+int a = 11;
+int b = 4;
+
+int c = a + b;
+Console.WriteLine($"{a} + {b} = {c}");
+c = a - b;
+Console.WriteLine($"{a} - {b} = {c}");
+c = a * b;
+Console.WriteLine($"{a} * {b} = {c}");
+c = a / b; // część dziesiętna jest ucinana
+Console.WriteLine($"{a} / {b} = {c}");
+c = a % b; // reszta z dzielenia
+Console.WriteLine($"{a} % {b} = {c}");
+
+
+float aa = 11f;
+float bb = 4.0f;
+float cc = aa + bb;
+Console.WriteLine($"{aa} + {bb} = {cc}");
+cc = aa - bb;
+Console.WriteLine($"{aa} - {bb} = {cc}");
+cc = aa * bb;
+Console.WriteLine($"{aa} * {bb} = {cc}");
+cc = aa / bb;
+Console.WriteLine($"{aa} / {bb} = {cc}");
+
+// kolejność działań zgodna z zasadami matematyki
+cc = 1f * a / b;
+Console.WriteLine($"{a} / {bb} = {cc}");
+
+c = a + a * a;
+Console.WriteLine($"{a} + {a} * {a} = {c}");
+c = (a + a) * a;
+Console.WriteLine($"({a} + {a}) * {a} = {c}");
+
+
+Console.WriteLine($"short min:{short.MinValue} max:{short.MaxValue}");
+Console.WriteLine($"int min:{int.MinValue} max:{int.MaxValue}");
+Console.WriteLine($"long min:{long.MinValue} max:{long.MaxValue}");
+
+
+
+Console.WriteLine($"float min:{float.MinValue} max:{float.MaxValue}");
+Console.WriteLine($"double min:{double.MinValue} max:{double.MaxValue}");
+Console.WriteLine($"decimal min:{decimal.MinValue} max:{decimal.MaxValue}");
+
+Console.WriteLine(5 / 3.3f);
+Console.WriteLine(5 / 3.3d);
+Console.WriteLine(5 / 3.3m);
+
+Console.WriteLine(Math.Round(2.5));
+Console.WriteLine(Math.Round(3.5));
+
+
+void Strings()
+{ 
 //instrukcje najwyższego poziomu - instrukcje bez jawnego opakowania w funkcję Main
-
-
 Console.WriteLine("Hello, World!");
 
 //; - średnik oznacza koniec instrukcji
@@ -71,7 +125,7 @@ Console.WriteLine($"helloOuput lengh is {helloOutput.Count()}");
 helloOutput = helloOutput.Replace("hello", "Hi", true, CultureInfo.InvariantCulture); //using System.Globalization
 Console.WriteLine(helloOutput);
 
-
+}
 
 
 //    }
