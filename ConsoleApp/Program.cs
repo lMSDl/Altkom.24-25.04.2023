@@ -46,18 +46,39 @@ Console.WriteLine($"short min:{short.MinValue} max:{short.MaxValue}");
 Console.WriteLine($"int min:{int.MinValue} max:{int.MaxValue}");
 Console.WriteLine($"long min:{long.MinValue} max:{long.MaxValue}");
 
-
-
 Console.WriteLine($"float min:{float.MinValue} max:{float.MaxValue}");
 Console.WriteLine($"double min:{double.MinValue} max:{double.MaxValue}");
 Console.WriteLine($"decimal min:{decimal.MinValue} max:{decimal.MaxValue}");
 
+//dzielenie przez float/double/decimal daje wynik o wyższej precyzji
 Console.WriteLine(5 / 3.3f);
 Console.WriteLine(5 / 3.3d);
 Console.WriteLine(5 / 3.3m);
 
+//zaokrąglanie domyślnie wykorzustyje "financial rounding"
 Console.WriteLine(Math.Round(2.5));
 Console.WriteLine(Math.Round(3.5));
+
+//zaokrąglanie klasyczne
+Console.WriteLine(Math.Round(3.5, MidpointRounding.AwayFromZero));
+
+
+
+int intMax = int.MaxValue;
+long longMax = long.MaxValue;
+
+
+//longMax = intMax;
+//chcąć przypisać wartość o wyższej precyzji do zmiennej o niższej musimy zastosować rzutowanie
+intMax = (int)longMax;
+Console.WriteLine(intMax);
+
+float floatValue = int.MaxValue;
+
+Console.WriteLine(floatValue);
+
+floatValue = (float)double.MaxValue;
+Console.WriteLine(floatValue);
 
 
 void Strings()
