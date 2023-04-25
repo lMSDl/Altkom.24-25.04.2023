@@ -6,6 +6,75 @@
 //    public static void Main()
 //    {
 
+// I - inicjalizacja pętli - wykonuje się tylko raz na początku
+// II - warunek kontynuacji pętli - wykonuje się przed każdym wykonaniem ciałą
+// III - ciało pętli
+// IV - akcja po wykonaniu ciała pętli - najczęściej inkrementacja licznika
+// for(I, II, IV) {
+// III
+// }
+
+for(int i = 0; i < 5; i = i + 1)
+{
+    Console.WriteLine(i);
+}
+
+
+//pętla nieskończona - odpowiednik while(true)
+/*for ( ; ; )
+{
+    Console.WriteLine("a");
+}*/
+
+Console.Write("Start odliczania: ");
+int counter = int.Parse(Console.ReadLine());
+//pomijamy etap I
+for(; counter >= 0; counter = counter - 1 )
+{
+    Console.WriteLine(counter);
+}
+
+//pomijamy etap I i IV
+int value = 7;
+for(; value > 5 ; )
+{
+    Console.WriteLine(value);
+    value = value - 1;
+}
+
+
+string[] stringArray = new[] { "ala", "ma", "kota", "i", "dwa", "psy" };
+for(int i = 2; i < stringArray.Length; i = i + 1)
+{
+    Console.WriteLine(stringArray[i]);
+}
+
+string sentence = "";
+/*for (int i = 0; i < stringArray.Length; i = i + 1)
+{
+    string word = stringArray[i];*/
+
+//foreach - pozwala przejść po wszystkich elementach tablicy - zastępuje powyższy kod
+foreach(string word in stringArray)
+{ 
+    sentence = $"{sentence} {word}";
+}
+Console.WriteLine(sentence);
+
+//w przeciwieństwie do foreach, for może pracować na zmieniającej się kolekcji
+List<string> stringList = new List<string>(stringArray);
+for (int i = 0; i < stringList.Count; i = i + 1)
+{
+    string word = stringList[i];
+
+    if (word.Length <= 2)
+    {
+        stringList.Remove(word);
+        i = i - 1;
+    }
+}
+
+
 //pętla while sprawdza warunek przed wejściem do ciała (ciało może nigdy się nie wykonać)
 bool stopCondition = true;
 while(stopCondition)
