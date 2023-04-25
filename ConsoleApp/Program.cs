@@ -1,4 +1,6 @@
 ﻿using System.Globalization;
+using Models.Additional;
+using Models;
 
 
 //class Program
@@ -6,123 +8,136 @@
 //    public static void Main()
 //    {
 
-// I - inicjalizacja pętli - wykonuje się tylko raz na początku
-// II - warunek kontynuacji pętli - wykonuje się przed każdym wykonaniem ciałą
-// III - ciało pętli
-// IV - akcja po wykonaniu ciała pętli - najczęściej inkrementacja licznika
-// for(I, II, IV) {
-// III
-// }
 
-for(int i = 0; i < 5; i = i + 1)
+//tworzymy instancję danej klasy (obiekt) poprzez new i nazwa klasy z nawiasami (konstruktor)
+Models.Item item = new Models.Item();
+Models.Additional.Item item2 = new Models.Additional.Item();
+
+Console.WriteLine(item2.GetType().Name);
+Console.WriteLine(item2.GetType().FullName);
+
+
+
+void Loops()
 {
-    Console.WriteLine(i);
-}
 
+    // I - inicjalizacja pętli - wykonuje się tylko raz na początku
+    // II - warunek kontynuacji pętli - wykonuje się przed każdym wykonaniem ciałą
+    // III - ciało pętli
+    // IV - akcja po wykonaniu ciała pętli - najczęściej inkrementacja licznika
+    // for(I, II, IV) {
+    // III
+    // }
 
-//pętla nieskończona - odpowiednik while(true)
-/*for ( ; ; )
-{
-    Console.WriteLine("a");
-}*/
-
-Console.Write("Start odliczania: ");
-int counter = int.Parse(Console.ReadLine());
-//pomijamy etap I
-for(; counter >= 0; counter = counter - 1 )
-{
-    Console.WriteLine(counter);
-}
-
-//pomijamy etap I i IV
-int value = 7;
-for(; value > 5 ; )
-{
-    Console.WriteLine(value);
-    value = value - 1;
-}
-
-
-string[] stringArray = new[] { "ala", "ma", "kota", "i", "dwa", "psy" };
-for(int i = 2; i < stringArray.Length; i = i + 1)
-{
-    Console.WriteLine(stringArray[i]);
-}
-
-string sentence = "";
-/*for (int i = 0; i < stringArray.Length; i = i + 1)
-{
-    string word = stringArray[i];*/
-
-//foreach - pozwala przejść po wszystkich elementach tablicy - zastępuje powyższy kod
-foreach(string word in stringArray)
-{ 
-    sentence = $"{sentence} {word}";
-}
-Console.WriteLine(sentence);
-
-//w przeciwieństwie do foreach, for może pracować na zmieniającej się kolekcji
-List<string> stringList = new List<string>(stringArray);
-for (int i = 0; i < stringList.Count; i = i + 1)
-{
-    string word = stringList[i];
-
-    if (word.Length <= 2)
+    for (int i = 0; i < 5; i = i + 1)
     {
-        stringList.Remove(word);
-        i = i - 1;
+        Console.WriteLine(i);
     }
-}
 
 
-//pętla while sprawdza warunek przed wejściem do ciała (ciało może nigdy się nie wykonać)
-bool stopCondition = true;
-while(stopCondition)
-{
-    string input = Console.ReadLine();
-
-    switch (input)
+    //pętla nieskończona - odpowiednik while(true)
+    /*for ( ; ; )
     {
-        case "exit":
-            stopCondition = false;
-            //korzystając ze switch wewnątrz pętli, nie możemy używać break do przerwania pętli
+        Console.WriteLine("a");
+    }*/
+
+    Console.Write("Start odliczania: ");
+    int counter = int.Parse(Console.ReadLine());
+    //pomijamy etap I
+    for (; counter >= 0; counter = counter - 1)
+    {
+        Console.WriteLine(counter);
+    }
+
+    //pomijamy etap I i IV
+    int value = 7;
+    for (; value > 5;)
+    {
+        Console.WriteLine(value);
+        value = value - 1;
+    }
+
+
+    string[] stringArray = new[] { "ala", "ma", "kota", "i", "dwa", "psy" };
+    for (int i = 2; i < stringArray.Length; i = i + 1)
+    {
+        Console.WriteLine(stringArray[i]);
+    }
+
+    string sentence = "";
+    /*for (int i = 0; i < stringArray.Length; i = i + 1)
+    {
+        string word = stringArray[i];*/
+
+    //foreach - pozwala przejść po wszystkich elementach tablicy - zastępuje powyższy kod
+    foreach (string word in stringArray)
+    {
+        sentence = $"{sentence} {word}";
+    }
+    Console.WriteLine(sentence);
+
+    //w przeciwieństwie do foreach, for może pracować na zmieniającej się kolekcji
+    List<string> stringList = new List<string>(stringArray);
+    for (int i = 0; i < stringList.Count; i = i + 1)
+    {
+        string word = stringList[i];
+
+        if (word.Length <= 2)
+        {
+            stringList.Remove(word);
+            i = i - 1;
+        }
+    }
+
+
+    //pętla while sprawdza warunek przed wejściem do ciała (ciało może nigdy się nie wykonać)
+    bool stopCondition = true;
+    while (stopCondition)
+    {
+        string input = Console.ReadLine();
+
+        switch (input)
+        {
+            case "exit":
+                stopCondition = false;
+                //korzystając ze switch wewnątrz pętli, nie możemy używać break do przerwania pętli
+                break;
+            default:
+                Console.WriteLine(input);
+                break;
+        }
+    }
+
+
+    //pętla do-while sprawdza warunek po wykonaniu ciała (ciało zawsze wykona się przynajmniej raz)
+    bool exit = false;
+    do
+    {
+        string input = Console.ReadLine();
+
+        if (input == "exit")
+        {
+            exit = true;
+        }
+        else if (input == "break")
+        {
+            //break przerywa pętlę w miejscu wywołania (warunek pętli nie jest pnownie sprawdzany)
             break;
-        default:
+        }
+        else if (input == "continue")
+        {
+            //continue przerywa aktualną iterację i przechodzi do sprawdzenia warunku pętli
+            continue;
+        }
+        else
+        {
             Console.WriteLine(input);
-            break;
-    }
+        }
+
+        Console.WriteLine("Koniec pętli");
+    } while (!exit);
+
 }
-
-
-//pętla do-while sprawdza warunek po wykonaniu ciała (ciało zawsze wykona się przynajmniej raz)
-bool exit = false;
-do
-{
-    string input = Console.ReadLine();
-
-    if (input == "exit")
-    {
-        exit = true;
-    }
-    else if (input == "break")
-    {
-        //break przerywa pętlę w miejscu wywołania (warunek pętli nie jest pnownie sprawdzany)
-        break;
-    }
-    else if (input == "continue")
-    {
-        //continue przerywa aktualną iterację i przechodzi do sprawdzenia warunku pętli
-        continue;
-    }
-    else
-    {
-        Console.WriteLine(input);
-    }
-
-    Console.WriteLine("Koniec pętli");
-} while (!exit);
-
-
 
 
 void Collections() { 
