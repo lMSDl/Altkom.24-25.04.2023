@@ -2,7 +2,7 @@
 using ShoppingList.Models;
 using ShoppingList.Services;
 
-ProductsService productsService = new ProductsService();
+IProductsService productsService = new SingleProductsService();
 
 bool exit = false;
 
@@ -47,7 +47,7 @@ int ReadInt()
     return value;
 }
 
-void AddNewProduct(ProductsService productsService)
+void AddNewProduct(IProductsService productsService)
 {
     Product product = new Product();
 
@@ -58,14 +58,14 @@ void AddNewProduct(ProductsService productsService)
     productsService.Add(product);
 }
 
-void RemoveProduct(ProductsService productsService)
+void RemoveProduct(IProductsService productsService)
 {
     Console.Write("Podaj pozycję do usunięcia: ");
     int position = ReadInt();
     productsService.Remove(position - 1);
 }
 
-void ShowList(ProductsService productsService)
+void ShowList(IProductsService productsService)
 {
     Console.Clear();
     productsService.Show();

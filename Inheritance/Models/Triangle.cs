@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Inheritance.Models
 {
-    public class Triangle : Shape2D
+    public class Triangle : Shape2D, IColor
     {
         public int Angle { get; }
         public Triangle(int width, int height, int angle) : base("Trójkąt", width, height)
@@ -25,5 +25,7 @@ namespace Inheritance.Models
         {
             return Width * Height * Math.Cos(Angle);
         }
+
+        public string Color { get; set; }
     }
 }

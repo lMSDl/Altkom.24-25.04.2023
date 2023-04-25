@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingList.Services
 {
-    public class ProductsService
+    public class ProductsService : IProductsService
     {
         private readonly List<Product> products = new List<Product>();
     
