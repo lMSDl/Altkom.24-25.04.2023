@@ -13,6 +13,12 @@ using Models;
 Models.Item item = new Models.Item();
 Models.Additional.Item item2 = new Models.Additional.Item();
 
+item.Description = "";
+item.Quantity = 1;
+
+Models.Item item3 = new Models.Item("ala ma kota", 2);
+
+
 Console.WriteLine(item2.GetType().Name);
 Console.WriteLine(item2.GetType().FullName);
 

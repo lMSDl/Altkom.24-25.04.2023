@@ -6,6 +6,55 @@ namespace Models
     //nazwa klasy (pełna nazwa klasy: namespace + nazwa klasy)
     public class Item
     {
+        //metoda konstrukcyjna (konstruktor) - bezparametrowa
+        //brak typu zwracanego i nazwa taka sama jak nazwa klasy
+        //jeśli klasa nie ma żadnego konstruktora, to konstruktor bezmarametrowy zostanie do niej automatycznie dodany
+        public Item()
+        {
+        }
+
+
+        //konstruktor parametrowy - służy do zapewnienie klasie wartości początkowych dla pól i właściwości
+        //jeśli w klasie występuje jakikolwiek konstruktor z parametrami, to konstruktor domyślny (bezparametrowy) nie zostanie dodany
+        //chcąc posiadać też konsturktor bezparametrowy musimy go jawnie utworzyć
+        public Item(int value, string description, int quantity)
+        {
+            this.value = value;
+            Description = description;
+            Quantity = quantity;
+        }
+
+        public Item(int value, int quantity)
+        {
+            this.value = value;
+            Quantity = quantity;
+        }
+
+        public Item(int value, string description)
+        {
+            this.value = value;
+            Description = description;
+        }
+
+        public Item(string description, int quantity)
+        {
+            Description = description;
+            Quantity = quantity;
+        }
+
+        public Item(string readOnlyField, string readOnlyProperty)
+        {
+            this.readOnlyField = readOnlyField;
+            ReadOnlyProperty = readOnlyProperty;
+        }
+
+
+        //pole readolny 
+        private readonly string readOnlyField;
+        //właściwość readonly (sam getter)
+        private string ReadOnlyProperty { get; }
+
+
         // zmianna globalna / pole klasy (field)
         //brak modyfikatora dostępu == private - oznacza dostęp tylko dla elementów danej klasy
         // pola zazwyczaj są prywatne ze względu na hermetyzację, a dostęp realizowany jest przez metody getter setter
