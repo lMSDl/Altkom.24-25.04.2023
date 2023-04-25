@@ -64,5 +64,27 @@ namespace Models
             }
         }
 
+
+        //metody mogą przyjmować parametry z domyślnymi wartościami. Wtedy te parametry stają sie opcjonalne. Muszą się one znajdować na końcu listy parametrów. 
+        public void WriteText(string text = "no content", int times = 1)
+        {
+            for (int i = 0; i < times; i++)
+            {
+                Console.WriteLine(text);
+            }
+        }
+
+        // result to parametr wyjściowy oznaczony słowen kluczonym out. Parametr wyjściowy MUSI być zainicjowany przed opuszczeniem funkcji.
+        public bool Modulo(int a, int b, out int result)
+        {
+            int tempResult = a % b;
+
+            if (tempResult == 0)
+                result = default;
+            else
+                result = tempResult;
+
+            return tempResult != 0;
+        }
     }
 }

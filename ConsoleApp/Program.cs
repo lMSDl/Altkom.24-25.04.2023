@@ -16,6 +16,35 @@ Models.Additional.Item item2 = new Models.Additional.Item();
 Console.WriteLine(item2.GetType().Name);
 Console.WriteLine(item2.GetType().FullName);
 
+item.WriteText();
+item.WriteText("some text");
+item.WriteText("another text", 4);
+
+int moduloResult;
+bool hasValue = item.Modulo(6, 3, out moduloResult);
+if (hasValue)
+{
+    Console.WriteLine(moduloResult);
+}
+
+
+
+
+
+int value;
+
+bool result;
+do
+{
+    Console.Write("Podaj int: ");
+    string input = Console.ReadLine();
+    result = int.TryParse(input, out value);
+    if(!result)
+        Console.WriteLine("Błędne dane");
+} while (!result);
+
+Console.WriteLine(value);
+
 
 
 void Loops()
