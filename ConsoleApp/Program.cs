@@ -6,6 +6,58 @@
 //    public static void Main()
 //    {
 
+//pętla while sprawdza warunek przed wejściem do ciała (ciało może nigdy się nie wykonać)
+bool stopCondition = true;
+while(stopCondition)
+{
+    string input = Console.ReadLine();
+
+    switch (input)
+    {
+        case "exit":
+            stopCondition = false;
+            //korzystając ze switch wewnątrz pętli, nie możemy używać break do przerwania pętli
+            break;
+        default:
+            Console.WriteLine(input);
+            break;
+    }
+}
+
+
+//pętla do-while sprawdza warunek po wykonaniu ciała (ciało zawsze wykona się przynajmniej raz)
+bool exit = false;
+do
+{
+    string input = Console.ReadLine();
+
+    if (input == "exit")
+    {
+        exit = true;
+    }
+    else if (input == "break")
+    {
+        //break przerywa pętlę w miejscu wywołania (warunek pętli nie jest pnownie sprawdzany)
+        break;
+    }
+    else if (input == "continue")
+    {
+        //continue przerywa aktualną iterację i przechodzi do sprawdzenia warunku pętli
+        continue;
+    }
+    else
+    {
+        Console.WriteLine(input);
+    }
+
+    Console.WriteLine("Koniec pętli");
+} while (!exit);
+
+
+
+
+void Collections() { 
+
 int a = 5;
 int b = 10;
 int c = 15;
@@ -70,7 +122,7 @@ Console.WriteLine($"List size: {intList.Count}");
 Console.WriteLine(intList[0]);
 intList.Sort();
 Console.WriteLine(intList[0]);
-
+}
 
 void Conditions()
 {
